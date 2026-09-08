@@ -55,7 +55,6 @@ bash TypeTermuxAndLinux.sh
 cd
 cd
 pkg upgrade
-apt list
 sleep 0.4
 clear
 sleep 0.2
