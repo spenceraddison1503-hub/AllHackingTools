@@ -79,9 +79,9 @@ def template_select():
 	
 	templ_json = json.loads(templ_info)
 	
-	for item in templ_json['templates']:
+	for index, item in enumerate(templ_json['templates']):
 		name = item['name']
-		print(G + '[{}]'.format(templ_json['templates'].index(item)) + C + ' {}'.format(name) + W)
+		print(G + '[{}]'.format(index) + C + ' {}'.format(name) + W)
 	
 	selected = int(input(G + '[>] ' + W))
 	
