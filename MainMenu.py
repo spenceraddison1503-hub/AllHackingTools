@@ -1,125 +1,102 @@
 #!/usr/bin/python3
 #Copyright 2021 AllHackingTools
 #Written by : Misha Korzhik
-#Github     : http://github.com/mishakorzik                                                                           
+#Github     : http://github.com/mishakorzik
+
 import os
+import subprocess
 import time
-import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent
+HOME = Path.home()
+
+
+def run_in(cwd, *cmd):
+    subprocess.run([str(part) for part in cmd], cwd=str(cwd), check=False, shell=False)
+
+
+def run(*cmd):
+    run_in(ROOT, *cmd)
+
+
+def run_menu(command):
+    run("bash", "src/Inf.sh")
+    run("python2", command)
+
 
 os.system("clear")
-os.system("cd && cd AllHackingTools")
-os.system("bash Logo.sh")
-os.system("bash src/MenuOps.sh")
+run("bash", "Logo.sh")
+run("bash", "src/MenuOps.sh")
 
 op = str(input("Options: "))
 if op == "1":
- os.system("bash src/Inf.sh")
- time.sleep(0.3)
- os.system("cd && cd AllHackingTools && python2 Files/IpMenu.py")
+    run_menu("Files/IpMenu.py")
 elif op == "2":
- os.system("bash src/Inf.sh")
- time.sleep(0.3)
- os.system("cd && cd AllHackingTools && python2 Files/RouterMenu.py")
+    run_menu("Files/RouterMenu.py")
 elif op == "3":
- os.system("bash src/Inf.sh")
- time.sleep(0.3)
- os.system("cd && cd AllHackingTools && python2 Files/MailMenu.py")
+    run_menu("Files/MailMenu.py")
 elif op == "4":
- os.system("bash src/Inf.sh")
- time.sleep(0.3)
- os.system("cd && cd AllHackingTools && python2 Files/WebMenu.py")
+    run_menu("Files/WebMenu.py")
 elif op == "5":
- os.system("bash src/Inf.sh")
- time.sleep(0.3)
- os.system("cd && cd AllHackingTools && python2 Files/CamHackMenu.py")
+    run_menu("Files/CamHackMenu.py")
 elif op == "6":
- os.system("bash src/Inf.sh")
- time.sleep(0.3)
- os.system("cd && cd AllHackingTools && python2 Files/AndroidMenu.py")
+    run_menu("Files/AndroidMenu.py")
 elif op == "7":
- os.system("bash src/Inf.sh")
- time.sleep(0.3)
- os.system("cd && cd AllHackingTools && python2 Files/SQLinjectionMenu.py")
+    run_menu("Files/SQLinjectionMenu.py")
 elif op == "8":
- os.system("bash src/Inf.sh")
- time.sleep(0.3)
- os.system("cd && cd AllHackingTools && python2 Files/SocialMenu.py")
+    run_menu("Files/SocialMenu.py")
 elif op == "9":
- os.system("bash src/Inf.sh")
- time.sleep(0.3)
- os.system("cd && cd AllHackingTools && python2 Files/SpamMenu.py")
+    run_menu("Files/SpamMenu.py")
 elif op == "10":
- os.system("bash src/Inf.sh")
- time.sleep(0.3)
- os.system("cd && cd AllHackingTools && python2 Files/AnalistickMenu.py")
+    run_menu("Files/AnalistickMenu.py")
 elif op == "11":
- os.system("bash src/Inf.sh")
- time.sleep(0.3)
- os.system("cd && cd AllHackingTools && python2 Files/DarkSearchMenu.py")
+    run_menu("Files/DarkSearchMenu.py")
 elif op == "12":
- os.system("bash src/Inf.sh")
- time.sleep(0.3)
- os.system("cd && cd AllHackingTools && python2 Files/PhishingMenu.py")
+    run_menu("Files/PhishingMenu.py")
 elif op == "13":
- os.system("bash src/Inf.sh")
- time.sleep(0.3)
- os.system("cd && cd AllHackingTools && python2 Files/PassworldMenu.py")
+    run_menu("Files/PassworldMenu.py")
 elif op == "14":
- os.system("bash src/Inf.sh")
- time.sleep(0.3)
- os.system("cd && cd AllHackingTools && python2 Files/WordlistGeneratorMenu.py")
+    run_menu("Files/WordlistGeneratorMenu.py")
 elif op == "15":
- os.system("bash src/Inf.sh")
- time.sleep(0.3)
- os.system("cd && cd AllHackingTools && python2 Files/XSSAttackMenu.py")
+    run_menu("Files/XSSAttackMenu.py")
 elif op == "16":
- os.system("bash src/Inf.sh")
- time.sleep(0.3)
- os.system("cd && cd AllHackingTools && python2 Files/discordMenu.py")
+    run_menu("Files/discordMenu.py")
 elif op == "17":
- os.system("bash src/Inf.sh")
- time.sleep(0.3)
- os.system("cd && cd AllHackingTools && python2 Files/telegramMenu.py")
+    run_menu("Files/telegramMenu.py")
 elif op == "18":
- os.system("bash src/Inf.sh")
- time.sleep(0.3)
- os.system("cd && cd AllHackingTools && python2 Files/Other.py")
+    run_menu("Files/Other.py")
 elif op == "19":
- os.system("bash src/Inf.sh")
- time.sleep(0.3)
- os.system("cd && cd AllHackingTools && python2 Files/TermuxS.py")
+    run_menu("Files/TermuxS.py")
 elif op == "20":
- os.system("bash src/Inf.sh")
- time.sleep(0.3)
- os.system("cd && cd AllHackingTools && python2 .settings/settingsMenu.py")
+    run_menu(".settings/settingsMenu.py")
 elif op == "21":
- os.system("bash src/Inf.sh")
- time.sleep(0.3)
- os.system("clear && cd && cd AllHackingTools && bash .settings/LICENSE.sh && cd && cd AllHackingTools && python3 src/Timer2.py && python2 MainMenu.py")
+    run("bash", "src/Inf.sh")
+    run("bash", ".settings/LICENSE.sh")
+    run("python3", "src/Timer2.py")
+    run("python2", "MainMenu.py")
 elif op == "22":
- os.system("bash src/Inf.sh")
- time.sleep(0.3)
- time.sleep(1)
- os.system("cd $HOME && git clone https://github.com/mishakorzik/AutoUpdateMyTools && cd AutoUpdateMyTools && bash AllHackingToolupdate.sh")
- #os.system("cd && cd AllHackingTools && bash src/UpdateTool.sh")
+    run("bash", "src/Inf.sh")
+    run_in(HOME, "git", "clone", "https://github.com/mishakorzik/AutoUpdateMyTools")
+    run_in(HOME / "AutoUpdateMyTools", "bash", "AllHackingToolupdate.sh")
 elif op == "23":
- os.system("bash src/Inf.sh")
- time.sleep(0.3)
- os.system("bash src/About.sh")
+    run("bash", "src/Inf.sh")
+    run("bash", "src/About.sh")
 elif op == "13324715":
- print("[DEBUG] Developer mode successfully enabled!")
- time.sleep(0.8)
- os.system("cd && cd AllHackingTools && cd .settings && mv DesingLogo.py /data/data/com.termux/files/home/AllHackingTools/.temp/ && mv DesingMenu.py /data/data/com.termux/files/home/AllHackingTools/.temp/")
- print("[DEBUG] Please restart AllHackingTools!")
- os.system("cd && cd AllHackingTools && mv MainMenu.py /data/data/com.termux/files/home/AllHackingTools/.temp/temp && cd .settings && cd debug && cp MainMenu.py /data/data/com.termux/files/home/AllHackingTools/")
- print("[DEBUG] Warning! Customization has been disabled.")
+    print("[DEBUG] Developer mode successfully enabled!")
+    time.sleep(0.8)
+    run_in(ROOT / ".settings", "mv", "DesingLogo.py", str(ROOT / ".temp" / "DesingLogo.py"))
+    run_in(ROOT / ".settings", "mv", "DesingMenu.py", str(ROOT / ".temp" / "DesingMenu.py"))
+    print("[DEBUG] Please restart AllHackingTools!")
+    run_in(ROOT, "mv", "MainMenu.py", str(ROOT / ".temp" / "temp"))
+    run_in(ROOT / ".settings" / "debug", "cp", "MainMenu.py", str(ROOT))
+    print("[DEBUG] Warning! Customization has been disabled.")
 elif op == "24":
- os.system("clear && cd && cd AllHackingTools && bash Logo.sh")
- print("\033[1;31;40mExiting System...")
- time.sleep(0.7)
+    os.system("clear")
+    run("bash", "Logo.sh")
+    print("\033[1;31;40mExiting System...")
+    time.sleep(0.7)
 else:
- print("\033[1;31;40mInvalid input. Reloading Tools")
- time.sleep(1.6)
- os.system("cd")
- os.system("cd AllHackingTool")
- os.system("python2 MainMenu.py")
+    print("\033[1;31;40mInvalid input. Reloading Tools")
+    time.sleep(1.6)
+    run_in(HOME, "python2", "MainMenu.py")
