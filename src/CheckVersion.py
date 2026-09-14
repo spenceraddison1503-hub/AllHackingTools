@@ -43,7 +43,7 @@ def ver_check():
 	print(G + '[+]' + C + ' Checking the AllHackingTools for updates....', end='')
 	ver_url = 'https://raw.githubusercontent.com/mishakorzik/AllHackingTools/main/Castom/version.txt'
 	try:
-		ver_rqst = requests.get(ver_url)
+		ver_rqst = requests.get(ver_url, timeout=5)
 		ver_sc = ver_rqst.status_code
 		if ver_sc == 200:
 			github_ver = ver_rqst.text
@@ -65,4 +65,3 @@ try:
 except KeyboardInterrupt:
 	print ('\n' + R + '[!]' + C + ' Keyboard Interrupt.' + W)
 	os.system("cd && bash AllHackingTools/.check/ConfigurationOptions.sh")
-
